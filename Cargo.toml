@@ -1,0 +1,5 @@
+[package]
+
+name = "nbody"
+version = "0.0.1"
+authors = ["nham <nick@wabbo.org>"]
