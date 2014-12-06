@@ -28,7 +28,6 @@ fn print_vals_bare(x: f64, y: f64, z: f64, vx: f64, vy: f64, vz: f64) {
 
 fn main() {
     let args: Args = Args::docopt().decode().unwrap_or_else(|e| e.exit());
-    println!("{}", args);
 
     // if all the vx, vy, vz arguments are there, set initial velocity to it
     // otherwise use default
@@ -58,7 +57,6 @@ fn main() {
     };
 
 
-    println!("dt = {}", dt);
     print_vals_bare(x,y,z,vx,vy,vz);
 
     for _ in range(0u, 1000) {
