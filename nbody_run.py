@@ -17,8 +17,8 @@ def varying_initial_vel():
     dt = datetime.datetime.now().strftime("%Y-%b-%d__%H_%M_%S")
 
 
-    vy = 0.5
-    for i in range(0, 3):
+    vy = 0.3
+    for i in range(0, 6):
         print(str(vy))
         p = subprocess.Popen(['./target/nbody', 'vel', '0', str(vy), '0'],
                              stdout=subprocess.PIPE)
