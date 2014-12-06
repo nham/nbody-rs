@@ -9,7 +9,9 @@ use std::num::Float;
 use docopt::Docopt;
 
 docopt!(Args deriving Show, "
-Usage: nbody [options] [pos <x> <y> <z>] [vel <vx> <vy> <vz>]
+Usage: nbody [options] pos <x> <y> <z>
+       nbody [options] vel <vx> <vy> <vz>
+       nbody [options] posvel <x> <y> <z> <vx> <vy> <vz>
 
 Options:
     --dt STEP     Set the time step
@@ -29,9 +31,7 @@ fn print_vals_bare(x: f64, y: f64, z: f64, vx: f64, vy: f64, vz: f64) {
 fn main() {
     let args: Args = Args::docopt().decode().unwrap_or_else(|e| e.exit());
 
-    // if all the vx, vy, vz arguments are there, set initial velocity to it
-    // otherwise use default
-    let (mut x, mut y, mut z) = if args.cmd_pos == true {
+    let (mut x, mut y, mut z) = if args.cmd_pos == true || args.cmd_posvel == true {
         let x: Option<f64> = from_str(args.arg_x.as_slice());
         let y: Option<f64> = from_str(args.arg_y.as_slice());
         let z: Option<f64> = from_str(args.arg_z.as_slice());
@@ -40,7 +40,7 @@ fn main() {
         (1., 0., 0.) // default
     };
 
-    let (mut vx, mut vy, mut vz) = if args.cmd_vel == true {
+    let (mut vx, mut vy, mut vz) = if args.cmd_vel == true || args.cmd_posvel == true {
         let vx: Option<f64> = from_str(args.arg_vx.as_slice());
         let vy: Option<f64> = from_str(args.arg_vy.as_slice());
         let vz: Option<f64> = from_str(args.arg_vz.as_slice());
