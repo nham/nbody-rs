@@ -4,5 +4,5 @@ name = "nbody"
 version = "0.0.1"
 authors = ["nham <nick@wabbo.org>"]
 
-[dependencies.docopt]
+[dependencies.docopt_macros]
 git = "https://github.com/docopt/docopt.rs"
