@@ -26,8 +26,8 @@ fn main() {
         let (ax, ay, az) = (-x / r3, -y / r3, -z / r3);
 
         x += vx*dt;
-        y += vx*dt;
-        z += vx*dt;
+        y += vy*dt;
+        z += vz*dt;
 
         vx += ax*dt;
         vy += ay*dt;
