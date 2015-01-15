@@ -4,5 +4,7 @@ name = "nbody"
 version = "0.0.1"
 authors = ["nham <nick@wabbo.org>"]
 
-[dependencies.docopt_macros]
-git = "https://github.com/docopt/docopt.rs"
+[dependencies]
+docopt = "*"
+docopt_macros = "*"
+rustc-serialize = "*"
